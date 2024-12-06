@@ -1,12 +1,8 @@
+# Import necessary modules from tkinter library
 from tkinter import *
 from tkinter import messagebox
-
-window = Tk()
-# window.minsize(width=550,height=600)
-window.config(padx=20,pady=20,bg="white")
-
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
-#Password Generator Project
+#Password Generator
 def passwd_gen():
     import random
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -28,8 +24,6 @@ def passwd_gen():
         password += random.choice(numbers)
 
 
-    #print(password)
-
     random.shuffle(password)
 
     new_pass = ""
@@ -39,21 +33,27 @@ def passwd_gen():
     
     password_entry.insert(0,new_pass)
     
-    # new_pass
-# print(f" Here is your password: {new_pass}")
+    # End of password generetor
 # ---------------------------- SAVE PASSWORD ------------------------------- #
+# This function is used to save the entered password to a file
 def save_pass():
+    # Get the entered email, password and website
     email = email_entry.get()
     password = password_entry.get()
     website = website_entery.get()
 
+    # Check if the website and password fields are filled
     if len(website) < 2 or len(password) < 2  :
-        messagebox.askretrycancel(title="ATTENTION", message="Plase Fill All The Gape")
+        # If not, display a message asking the user to fill all fields
+        messagebox.askretrycancel(title="ATTENTION", message="Please Fill All The Gaps")
     else:
-        is_ok = messagebox.askokcancel(title="Agree", message=f"These a the details you Enterd:\n \n {email} \n {password} \n {website}")
+        # If all fields are filled, display a confirmation message
+        is_ok = messagebox.askokcancel(title="Agree", message=f"These are the details you Entered:\n \n {email} \n {password} \n {website}")
         if is_ok:
+            # If the user confirms, save the details to a file
             with open("data.txt", "a") as file:
                 file.write(f"{website} | {email} | {password} \n")
+            # Clear the password and website fields
             password_entry.delete(0,END)
             website_entery.delete(0,END)
 
@@ -61,8 +61,6 @@ def save_pass():
 # ---------------------------- UI SETUP ------------------------------- #
 canvas = Canvas(width=200,height=200, bg="white", highlightthickness=0)
 my_picture = PhotoImage(file = "logo.png")
-# my_background = PhotoImage(file="")
-
 canvas.create_image(100,100,image = my_picture)
 canvas.grid(column=1,row=0)
 
