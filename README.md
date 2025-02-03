@@ -16,7 +16,7 @@ Welcome to the **Password Manager** project! This simple yet secure password man
 ## 🚀 **How to Use**
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/your-username/password-manager.git
+    git clone https://github.com/Solomon-mbash/password-manager.git
     ```
 2. **Install Tkinter**:  
     If you don’t have Tkinter installed, you can install it via pip:
