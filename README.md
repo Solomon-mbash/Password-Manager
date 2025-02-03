@@ -43,6 +43,3 @@ This is a simple password manager for learning purposes. It doesn’t use comple
 
 ## 💬 **Contributing**  
 If you'd like to improve this project, feel free to fork it, make your changes, and submit a **pull request**. 🛠️ Your contributions are always welcome!
-
-## 📄 **License**  
-This project is open-source and available under the [MIT License](LICENSE). Feel free to modify it and use it for your personal projects.
